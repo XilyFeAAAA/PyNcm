@@ -15,6 +15,11 @@ class UserBase:
         self._isLog: bool = False
         self._loadCookie()
 
+    def init(self):
+        try:
+            self._info = self.account()
+        except:
+            logger.warning('Can not connect to nodejs service')
 
     @property
     def isLogged(self):
@@ -28,7 +33,6 @@ class UserBase:
                 self._cookie = cookieReader(Path(__file__).parent / 'assets/cookies.txt')
             self._ws.set(self._cookie)
             self._isLog = True
-            # self._info = self.account()
         except Exception as e:
             logger.warning('Can not read the default cookie, Please Login')
 

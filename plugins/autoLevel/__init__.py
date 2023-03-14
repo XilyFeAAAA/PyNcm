@@ -96,12 +96,13 @@ def startPlay2():
         t.join()
 
 """注册api打开事件"""
-@apiRun.handle
+@apiRun.handle(priority=1)
 async def start(event):
-    global sid, p, playMode
+    global sid, p, playMode, ncm
     uid = ''
     count = 0  # 记录听歌量
     ThreadList = []  # 储存所有线程
+    ncm.user.init()
     if not UID:
         try:
             res: Account = ncm.user.account()

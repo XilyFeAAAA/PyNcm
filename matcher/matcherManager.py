@@ -21,7 +21,7 @@ class matcherManager:
         self._active = False
         """事件开关"""
 
-        self._provider: defaultdict[int,List[Type[Matcher]]] = {}
+        self._provider: defaultdict[str, Type[Matcher]] = {}
         """存放字典：事件 => 处理函数"""
 
         self._delay = 0.1
@@ -65,34 +65,44 @@ class matcherManager:
         while self._active:
             try:
                 event = self._eventQueue.get(block = True, timeout = 1)
-                # logger.info(f'检索到新事件 {event.name}')
                 self._EventProcess(event)
             except Empty:
                 pass
             time.sleep(self._delay)
     
-    def _EventProcess(self, event) -> None:
+    def _EventProcess(self, event: Event) -> None:
         """事件处理函数"""
         if event.type_ in self._provider.keys():
-            """取出对应事件的每一个Matcher类"""
-            for matcher in self._provider[event.type_]:
-                """临时响应器,使用后删除"""
-                asyncio.run(matcher.run())
-                if matcher.disposable:
-                    self._provider[event.type_].remove(matcher)
-
-            return
+            """取出对应事件的Matcher类"""
+            matcher = self._provider[event.type_]
+            asyncio.run(matcher.run(event))
+            """临时响应器,使用后删除"""
+            if matcher.disposable:
+                del self._provider[event.type_]
+            return 
         """如果没有对应Matcher且event.keep=True则保留事件""" 
         if event.keep:
             self._eventQueue.put(event)
 
     def run(self) -> None:
         """启动"""
+        self.send(Event(
+            name='Project Booting',
+            type_='boot',
+            keep=True,
+            data=None
+        ))
         self._active = True
         self._thread.start()
 
     def stop(self) -> None:
         """停止"""
+        self.send(Event(
+            name='Project Shutting',
+            type_='shut',
+            keep=True,
+            data=None
+        ))
         self._active = False
         self._thread.join()
 
@@ -100,7 +110,6 @@ class matcherManager:
         self,
         type_: str = "",
         disposable: bool = False,
-        priority: int = 1,
         plugin: Optional["Plugin"] = None,
     ) -> Type["Matcher"]:
         """
@@ -112,16 +121,16 @@ class matcherManager:
             plugin: 事件响应器所在插件
         """
         """存在Matcher则返回"""
-        NewMatcher = Matcher(
-                plugin = plugin,
+        if type_ in self._provider.keys():
+            """如果存在此种响应器则返回实例"""
+            NewMatcher =  self._provider[type_]
+        else:
+            NewMatcher = Matcher(
                 type_ =  type_,
                 disposable = disposable,
-                priority = priority,
-        )
-        if priority in self._provider.keys():
-            self._provider[priority].append(NewMatcher)
-        else:
-            self._provider[priority] = [NewMatcher]
+                plugin = plugin
+            )
+            self._provider[type_] = NewMatcher
         logger.info(f'created a new matcher {type_} in matchers')
         return NewMatcher
 

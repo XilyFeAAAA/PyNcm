@@ -8,9 +8,9 @@ from loguru import logger
 from pathlib import Path
 from itertools import count
 from threading import Thread
-from matcher import matchers, Event
+from matcher import Event, matchers
 
-class apiProcess:
+class apiProcess(object):
     def __init__(
             self,
             port: int = 3000,
@@ -36,11 +36,6 @@ class apiProcess:
 
     def _process_executor(self) :
         # 子进程运行api
-        # self.process = subprocess.Popen(
-        #     ['node', self.DATA_PATH.absolute()],
-        #     cwd=self.cwd.absolute(),
-        #     shell=False#, stdout=subprocess.PIPE, stderr=subprocess.STDOUT
-        # )
         st = subprocess.STARTUPINFO()
         st.dwFlags = subprocess.STARTF_USESHOWWINDOW
         st.wShowWindow = subprocess.SW_HIDE
@@ -63,7 +58,7 @@ class apiProcess:
         for restart in count():
             if not self.thread_running:
                 break  # 如果没进入进程，退出
-            if self.max_restart_count >= 0 and restart >= self.max_restart_count:
+            if self.max_restart_count >= 0 and restart > self.max_restart_count:
                 break  # 不是无限重连切超过次数，退出
             code = None
             try:
@@ -93,7 +88,7 @@ class apiProcess:
                 if puuid: psutil.Process(puuid).terminate()
                 break
         return
-
+    
     async def start(self) -> bool:
         # 服务已经在运行
         logger.info('Loading NeteaseMusicApi.')
