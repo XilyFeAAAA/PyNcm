@@ -1,0 +1,25 @@
+#LWP-Cookies-2.0
+Set-Cookie3: MUSIC_U=1cdd7b08e32de1b7125a1319e5edb5d6a61c09bbb039cd863e398ecd57803c80519e07624a9f005361643c90204310a76fae2fd6fb8b3b1b4faf87c024c95e6f53bd872076c8b2d0a0d2166338885bd7; path="/"; domain="localhost.local"; path_spec; expires="2023-09-06 10:39:45Z"; HTTPOnly=None; version=0
+Set-Cookie3: __csrf=757fb27ec331e76aeecd9afbc01b8bba; path="/"; domain="localhost.local"; path_spec; expires="2023-03-25 10:39:55Z"; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/api/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/api/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/api/feedback"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/api/feedback"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/eapi/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/eapi/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/eapi/feedback"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/eapi/feedback"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/neapi/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/neapi/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/neapi/feedback"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/neapi/feedback"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/openapi/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/openapi/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/wapi/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/wapi/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/wapi/feedback"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/wapi/feedback"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/weapi/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/weapi/clientlog"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_A_T=1502024292710; path="/weapi/feedback"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
+Set-Cookie3: MUSIC_R_T=1502024315689; path="/weapi/feedback"; domain="localhost.local"; path_spec; expires="2091-03-28 13:53:52Z"; HTTPOnly=None; version=0
